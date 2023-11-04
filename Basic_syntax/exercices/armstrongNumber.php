@@ -10,13 +10,17 @@ echo $a;
 function isArmstrongNumber(int $number): bool
 {
     $finalNumber = 0;
-    $number = (string)$number;
+    $digits = str_split((string) $number);
   
-    for ($i = 0; $i < strlen((string)$number); $i++) {
-        $finalNumber += (int)$number[$i]**mb_strlen($number);
-    }
+    // for ($i = 0; $i < strlen((string)$number); $i++) {
+    //     $finalNumber += (int)$number[$i]**mb_strlen($number);
+    // }
 
-    return $finalNumber === (int) $number;
+    $digits = array_map(function ($digit) use ($digits) {
+        return $digit** count($digits);
+    }, $digits);
+
+    return $digits === (int) $number;
 
 }
 
