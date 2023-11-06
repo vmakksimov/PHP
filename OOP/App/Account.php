@@ -3,6 +3,8 @@
 namespace App;
 
 class Account{
+
+    public const PEOPLE_BUDGET = 1000;
     // public $name;
     // public $balance = 5.5;
 
