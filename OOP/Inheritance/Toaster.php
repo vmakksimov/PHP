@@ -5,9 +5,19 @@ namespace Inheritance;
 
 
 class Toaster {
-    public int $slots = 2;
+    protected int $slots;
+
+    public function __construct() {
+        $this->slots = 10;
+    }
+
 
     public function makingToast(){
-        return "Making bread...";
+
+        echo  "{$this->slots} Making bread...";
+    }
+
+    public function turnOn(){
+        echo "turning on";
     }
 }

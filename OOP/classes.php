@@ -10,21 +10,10 @@ spl_autoload_register(function ($class) {
     require_once $path;
 });
 
-require_once ("Encapsulation/PrivateAccount.php");
-// require_once ("Inheritance/ToasterPremium.php");
+
 
 use App\{Account, SocialMedia, StaticMethod};
-use Encapsulation\PrivateAccount;
-use Inheritance\ToasterPremium;
 
-$toasterPremium = new ToasterPremium();
-
-var_dump($toasterPremium->makingToast());
-echo "<br>";
-
-
-$privateAccount = new PrivateAccount("Lorenzo", 150.50);
-var_dump($privateAccount->getBalance());
 
 
 $myAccount = new Account('Viktor', 0.55);
