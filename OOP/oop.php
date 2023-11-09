@@ -1,4 +1,5 @@
 <?php 
+use Polymorph\RestaurantInterface;
 
 
 // require_once ("App/Account.php");
@@ -15,9 +16,29 @@ spl_autoload_register(function ($class) {
 
 use Encapsulation\PrivateAccount;
 use Inheritance\{Toaster, ToasterPremium};
+use Polymorph\{FoodApp, RestaurantOne, RestaurantTwo};
 
 $toasterPremium = new ToasterPremium(550);
 $toaster = new Toaster();
+$restaurantOne = new RestaurantOne();
+
+// $restaurant = new FoodApp(new RestaurantTwo());
+
+// anonymous class
+
+$restaurant = new FoodApp(new class ('burger') implements RestaurantInterface {
+    public function __construct(public string $name){
+
+    }
+
+    public function prepareFood(){
+        echo "preparing {$this -> name} from ananoymous class";
+    }
+
+
+});
+
+// $restaurantOne -> prepareFood();
 
 
 echo "<br>";

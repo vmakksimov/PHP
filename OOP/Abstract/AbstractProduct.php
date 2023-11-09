@@ -25,8 +25,9 @@ class NewProduct extends AbstractProduct {
     
     
     public function turnOn(){
-        echo 'hakunaa matata';
+        echo 'testing...';
         echo '<br>';
+        
         echo join(', ', $this -> data);
         echo $this -> numbers;
         
