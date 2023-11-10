@@ -1,5 +1,5 @@
 <?php 
-use Polymorph\RestaurantInterface;
+
 
 
 // require_once ("App/Account.php");
@@ -16,7 +16,7 @@ spl_autoload_register(function ($class) {
 
 use Encapsulation\PrivateAccount;
 use Inheritance\{Toaster, ToasterPremium};
-use Polymorph\{FoodApp, RestaurantOne, RestaurantTwo};
+use Polymorph\{FoodApp, RestaurantOne, RestaurantTwo, RestaurantInterface};
 
 $toasterPremium = new ToasterPremium(550);
 $toaster = new Toaster();

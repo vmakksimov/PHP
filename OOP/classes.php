@@ -12,13 +12,26 @@ spl_autoload_register(function ($class) {
 
 
 
-use App\{Account, SocialMedia, StaticMethod};
+use App\{Account, CustomException, SocialMedia, StaticMethod};
 
 
 
 $myAccount = new Account('Viktor', 0.55);
 $otherAccount = new Account('Aneta', 50.55);
 $mySocial = new SocialMedia(30, '180');
+$staticMethod = new StaticMethod();
+
+
+
+try {
+    $staticMethod -> printArray([]);
+} catch (CustomException $e) {
+    echo "Customer Exception: {$e->getMessage()} </br>";
+} catch (Exception $e) {
+    echo "Default Exception: {$e->getMessage()} </br>";
+} finally {
+    echo    "Finally block element";
+}
 
 // $mySocial -> getAge(45);
 var_dump($mySocial -> age);
@@ -30,5 +43,5 @@ echo '<br>';
 var_dump($otherAccount -> balance);
 echo '<br>';
 var_dump($myAccount::PEOPLE_BUDGET);
-StaticMethod::printArray([5,4,3]);
+StaticMethod::printArray([]);
 var_dump(StaticMethod::$number);
