@@ -5,7 +5,7 @@ declare(strict_types=1);
 class School
 {
 
-    public $students = [];
+    private $students = [];
     public function add(string $name, int $grade): void
 
     {
@@ -13,21 +13,33 @@ class School
         
     }
 
-    // public function grade($grade) : array
-    // {
-        // $currentStudents = array_map(fn ($student) => $student === $name, $this->students);
-    // }
+    public function grade($grade) : array
+    {
+        return $this->students[$grade] ?? [];
+       
+    }
 
     public function studentsByGradeAlphabetical(): array
     {
-        return $this ->students;
+       
+        ksort($this->students);
+
+        return array_map(function ($grade) {
+            sort($grade);
+            return $grade;
+        }, $this->students);
+      
     }
 }
 
 $school = new School();
 
-$school->add('Viktor', 5);
-$school->add('Elena', 5);
+$school->add('Anna', 12);
+$school->add('BBB', 8);
+$school->add('VVV', 1);
 
+echo '</br>';
+print_r( $school->grade(12));
+echo '</br>';
+print_r($school->studentsByGradeAlphabetical());
 
-print_r( $school->studentsByGradeAlphabetical());
